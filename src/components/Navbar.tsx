@@ -1,0 +1,58 @@
+import React, { Component } from "react";
+
+export class Navbar extends Component {
+  render() {
+    return (
+      <div>
+        <div className="navbar bg-[#842a50]">
+          <div className="flex">
+            <a className="btn btn-ghost normal-case text-2xl text-white">
+              Nonton
+            </a>
+            <a className="btn btn-ghost normal-case text-2xl text-white">
+              Favorite
+            </a>
+            <div className="flex-none items-center justify-center gap-2">
+              <div className="form-control">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="input input-bordered flex justify-center"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-none gap-4">
+            <div className="dropdown dropdown-end ml-20">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://placeimg.com/80/80/people" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Navbar;
