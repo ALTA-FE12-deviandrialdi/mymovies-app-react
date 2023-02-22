@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 interface CardProps {
-  id: string;
   title: string;
   image: string;
   description: string;
@@ -9,7 +8,7 @@ interface CardProps {
 
 class Card extends Component<CardProps> {
   render() {
-    const { id, title, image, description } = this.props;
+    const { title, image, description } = this.props;
 
     return (
       <div className="card glass bg-[#efe5e9]">
