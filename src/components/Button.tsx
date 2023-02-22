@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, Component } from "react";
+import React, { Component } from "react";
 
 interface ButtonProps {
   label: string;

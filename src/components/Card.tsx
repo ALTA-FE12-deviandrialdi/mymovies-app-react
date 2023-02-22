@@ -2,22 +2,25 @@ import React, { Component } from "react";
 
 interface CardProps {
   title: string;
-  image: string;
-  description: string;
+  poster_path: string;
+  vote_average: number;
 }
 
 class Card extends Component<CardProps> {
   render() {
-    const { title, image, description } = this.props;
+    const { title, poster_path, vote_average } = this.props;
 
     return (
       <div className="card glass bg-[#efe5e9]">
         <figure>
-          <img src={image} alt={title} />
+          <img
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            alt={title}
+          />
         </figure>
         <div className="card-body items-center justify-between">
           <h2 className="card-title items-center text-center">{title}</h2>
-          <p>{description}</p>
+          <p>{vote_average}</p>
         </div>
 
         <button className="btn gap-1 bg-[#842a50] text-[9px]">
