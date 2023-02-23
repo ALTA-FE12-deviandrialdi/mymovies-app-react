@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import { Component, ButtonHTMLAttributes } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  onClick?: () => void;
 }
 
 class Button extends Component<ButtonProps> {
   render() {
-    const { label, onClick } = this.props;
+    const { label } = this.props;
 
     return (
       <button className="btn gap-1 bg-[#0369a1] text-[9px]" {...this.props}>

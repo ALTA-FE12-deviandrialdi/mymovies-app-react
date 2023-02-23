@@ -1,29 +1,47 @@
-import React, { Component } from "react";
+import { Component } from "react";
+import { withRouter } from "../utils/navigation";
+
+import Button from "./Button";
 
 interface CardProps {
+  id: number;
   title: string;
   poster_path: string;
   vote_average: number;
+  labelButton: any;
+  navigate?: any;
+  onClickFav?: () => void;
+  params?: any;
 }
 
 class Card extends Component<CardProps> {
+  onClikDetail() {
+    this.props.navigate(`/movie/${this.props.id}`);
+  }
+
   render() {
-    const { title, poster_path, vote_average } = this.props;
+    const { id, title, poster_path, vote_average, onClickFav, labelButton } =
+      this.props;
 
     return (
       <div className="card glass bg-[#efe5e9]">
-        <figure>
+        <figure onClick={() => this.onClikDetail()}>
           <img
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={title}
           />
         </figure>
         <div className="card-body items-center justify-between">
-          <h2 className="card-title items-center text-center">{title}</h2>
+          <h2
+            className="card-title items-center text-center"
+            onClick={() => this.onClikDetail()}
+          >
+            {title}
+          </h2>
           <p>{vote_average}</p>
         </div>
 
-        <button className="btn gap-1 bg-[#842a50] text-[9px]">
+        {/* <button className="btn gap-1 bg-[#842a50] text-[9px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -39,10 +57,11 @@ class Card extends Component<CardProps> {
             />
           </svg>
           Add to Favorite
-        </button>
+        </button> */}
+        <Button label={labelButton} onClick={onClickFav} />
       </div>
     );
   }
 }
 
-export default Card;
+export default withRouter(Card);
